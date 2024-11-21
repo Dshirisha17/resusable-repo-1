@@ -1,0 +1,14 @@
+name: Main A
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_message:
+        description: 'Message to pass to Workflow B'
+        required: true
+
+jobs:
+  call-workflow-b:
+    uses: ./.github/workflows/main-b.yml
+    with:
+      input_message: ${{ github.event.inputs.input_message }}
