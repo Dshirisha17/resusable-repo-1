@@ -1,0 +1,25 @@
+name: Caller Workflow for Arithmetic Operations
+
+on:
+  workflow_dispatch:
+    inputs:
+      num1:
+        description: 'First number'
+        required: true
+        type: number
+      num2:
+        description: 'Second number'
+        required: true
+        type: number
+      operation:
+        description: 'Arithmetic operation (add, subtract, multiply, divide)'
+        required: true
+        type: string
+
+jobs:
+  call-arithmetic-operations:
+    uses: ./.github/workflows/arithmetic-operations.yml
+    with:
+      num1: ${{ github.event.inputs.num1 }}
+      num2: ${{ github.event.inputs.num2 }}
+      operation: ${{ github.event.inputs.operation }}
