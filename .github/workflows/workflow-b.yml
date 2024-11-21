@@ -4,9 +4,8 @@ on:
   workflow_call:
     inputs:
       input_message:
-      description: 'input is accepted from Workflow A'
-      required: true
-      type: string
+        required: true
+        type: string
 
 jobs:
   process-message:
