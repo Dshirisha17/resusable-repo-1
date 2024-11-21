@@ -1,0 +1,14 @@
+name: Main B
+
+on:
+  workflow_call:
+    inputs:
+      input_message:
+        required: true
+        type: string
+
+jobs:
+  call-workflow-c:
+    uses: ./.github/workflows/main-c.yml
+    with:
+      input_message: ${{ inputs.input_message }}
