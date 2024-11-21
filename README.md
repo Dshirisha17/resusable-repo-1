@@ -4,7 +4,7 @@ This repo are used for working on example on the concept of reusable workflows
 #Workflow Overview
 This repository contains multiple GitHub Actions workflows that are interconnected, enabling the passing of input messages between different workflows for processing. The workflows are designed to be reusable and can be triggered manually or by other workflows. Below is a breakdown of each workflow and its role in the overall setup.
 
-##Workflows in the Repository
+#Workflows in the Repository
 1. Workflow A (workflow-a.yml)
 Trigger: Manual trigger via workflow_dispatch.
 Inputs: Accepts an input_message from the user.
@@ -30,7 +30,7 @@ Trigger: Triggered by Main B using workflow_call.
 Inputs: Accepts an input_message passed from Main B.
 Action: This workflow processes the input_message on a Windows machine and outputs the message for logging or further processing.
 
-##How to Trigger Workflows
+#How to Trigger Workflows
 Manual Trigger: Some workflows (e.g., Workflow A, Main A) can be triggered manually via the GitHub UI. When triggered, you will be prompted to provide an input_message.
 
 Workflow Chaining: Other workflows (e.g., Workflow B, Main B) are called by preceding workflows via workflow_call. The input message is passed along through this chain.
