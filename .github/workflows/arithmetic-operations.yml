@@ -18,16 +18,16 @@ on:
 
 jobs:
   arithmetic-operations:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest  # You can change this to windows-latest if required
     steps:
       - name: Perform arithmetic operations
         id: arithmetic
         run: |
-          # Get input values
+          # Convert inputs to integers explicitly
           num1=${{ inputs.num1 }}
           num2=${{ inputs.num2 }}
-          operation=${{ inputs.operation }}
-          
+          operation="${{ inputs.operation }}"
+
           # Perform arithmetic based on operation input
           if [ "$operation" == "add" ]; then
             result=$((num1 + num2))
