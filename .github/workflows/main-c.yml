@@ -1,0 +1,16 @@
+name: Main C
+
+on:
+  workflow_call:
+    inputs:
+      input_message:
+        required: true
+        type: string
+
+jobs:
+  process-message:
+    runs-on: windows-latest
+    steps:
+      - name: Process message on Windows
+        run: |
+          echo "Message processed by Workflow C: ${{ inputs.input_message }}"
