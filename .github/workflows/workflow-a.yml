@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
     inputs:
       input_message:
-        description: 'Message to pass to Workflow B'
         required: true
 
 jobs:
