@@ -1,0 +1,16 @@
+name: Workflow B
+
+on:
+  workflow_call:
+    inputs:
+      input_message:
+        required: true
+        type: string
+
+jobs:
+  process-message:
+    runs-on: windows-latest
+    steps:
+      - name: Process input message on Windows
+        run: |
+          echo "Message: ${{ inputs.input_message }}"
