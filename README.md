@@ -7,7 +7,7 @@
 
 # Workflows in the Repository
 ## Workflow A (workflow-a.yml)
-   Trigger: Manual trigger via workflow_dispatch.
+ ####  Trigger: Manual trigger via workflow_dispatch.
    Inputs: Accepts an input_message from the user.
    Action: This workflow triggers Workflow B, passing the input_message as an input.
 ## Workflow B (workflow-b.yml)
