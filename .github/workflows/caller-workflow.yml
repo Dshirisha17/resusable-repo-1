@@ -1,7 +1,7 @@
-name: Caller Workflow for Arithmetic Operations
+name: Arithmetic Operations
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       num1:
         description: 'First number'
@@ -17,9 +17,33 @@ on:
         type: string
 
 jobs:
-  call-arithmetic-operations:
-    uses: ./.github/workflows/arithmetic-operations.yml
-    with:
-      num1: ${{ github.event.inputs.num1 }}
-      num2: ${{ github.event.inputs.num2 }}
-      operation: ${{ github.event.inputs.operation }}
+  arithmetic-operations:
+    runs-on: windows-latest
+    steps:
+      - name: Perform arithmetic operations
+        id: arithmetic
+        run: |
+          # Get input values
+          num1=${{ inputs.num1 }}
+          num2=${{ inputs.num2 }}
+          operation=${{ inputs.operation }}
+          
+          # Perform arithmetic based on operation input
+          if [ "$operation" == "add" ]; then
+            result=$((num1 + num2))
+            echo "Addition result: $result"
+          elif [ "$operation" == "subtract" ]; then
+            result=$((num1 - num2))
+            echo "Subtraction result: $result"
+          elif [ "$operation" == "multiply" ]; then
+            result=$((num1 * num2))
+            echo "Multiplication result: $result"
+          elif [ "$operation" == "divide" ]; then
+            if [ $num2 -ne 0 ]; then
+              result=$((num1 / num2))
+              echo "Division result: $result"
+            else
+              echo "Error: Division by zero is not allowed"
+            fi
+          else
+            echo "Error: Invalid operation"
