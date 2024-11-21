@@ -1,4 +1,4 @@
-name: Workflow C calls workflow B from resusable-repo-2.
+name: Workflow C calls Workflow B from reusable-repo-2.
 
 on:
   workflow_dispatch:
@@ -9,6 +9,6 @@ on:
 
 jobs:
   call-workflow-b:
-    uses: owner/reusable-repo-2/.github/workflows/workflow-b.yml@main
+    uses: owner/reusable-repo-2/.github/workflows/workflow-b.yml@main  # Correct path to the reusable workflow in another repo
     with:
-      input_message: ${{ github.event.inputs.input_message }}
+      input_message: ${{ github.event.inputs.input_message }}  # Pass input from Workflow C to Workflow B
